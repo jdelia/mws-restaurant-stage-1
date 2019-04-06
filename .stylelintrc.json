@@ -1,0 +1,18 @@
+{
+  "plugins": ["stylelint-scss"],
+  "extends": [
+    "stylelint-config-standard",
+    "./node_modules/prettier-stylelint/config.js",
+    "stylelint-config-rational-order"
+  ],
+  "rules": {
+    "indentation": "tab",
+    "string-quotes": "single",
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["function", "if", "each", "include", "mixin"]
+      }
+    ]
+  }
+}

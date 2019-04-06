@@ -1,0 +1,24 @@
+{
+  "eslint.autoFixOnSave": true,
+  "editor.renderWhitespace": "all",
+  "editor.wordWrap": "off",
+  "html.format.wrapLineLength": 0,
+  "html.format.wrapAttributes": "auto",
+  "prettier.disableLanguages": ["html"],
+  "[javascript]": {
+    "editor.formatOnSave": true
+    // "editor.insertSpaces": false,
+    // "editor.detectIndentation": false,
+    // "editor.useTabStops": false,
+  },
+  // "beautify.ignore": ["*.html", "**/*.css", "**/*.js"],
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true
+}
