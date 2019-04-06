@@ -144,6 +144,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
     const noReviews = document.createElement("p");
     noReviews.innerHTML = "No reviews yet!";
     container.appendChild(noReviews);
+    fillReturnButton();
     return;
   }
   const ul = document.getElementById("reviews-list");
@@ -151,6 +152,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
     ul.appendChild(createReviewHTML(review));
   });
   container.appendChild(ul);
+  fillReturnButton();
 };
 
 /**
@@ -185,6 +187,17 @@ fillBreadcrumb = (restaurant = self.restaurant) => {
   const li = document.createElement("li");
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);
+};
+
+/**
+ * Add return to main page
+ */
+fillReturnButton = () => {
+  reviewsList = document.getElementById("reviews-list");
+  const more = document.createElement("a");
+  more.innerHTML = "Return to Main Page";
+  more.href = "/";
+  reviewsList.after(more);
 };
 
 /**
