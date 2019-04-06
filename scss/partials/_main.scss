@@ -110,6 +110,7 @@ section {
 
 /* ====================== Navigation ====================== */
 nav {
+	display: flex;
 	width: 100%;
 	height: 80px;
 	text-align: center;
@@ -281,20 +282,21 @@ nav h1 a {
 
 .inside #map-container {
 	position: relative;
+	box-sizing: border-box;
 	// top: 80px;
 	// right: 0;
 	width: 100%;
 	height: 50vh;
 	min-height: 50vh;
-	background: blue none repeat scroll 0 0;
+	background: transparent none repeat scroll 0 0;
 
 	@include media($screen-m) {
 		position: fixed;
 		top: 80px;
 		right: 0;
 		width: 50%;
-		min-height: 100vh;
-		padding-top: 50px;
+		min-height: 80vh;
+		padding: 120px 40px 40px;
 	}
 }
 
@@ -321,7 +323,8 @@ nav h1 a {
 }
 
 #restaurant-img {
-	width: 90%;
+	width: 100%;
+	max-width: 800px;
 }
 
 #restaurant-address {
@@ -330,7 +333,8 @@ nav h1 a {
 }
 
 #restaurant-cuisine {
-	width: 90%;
+	width: 100%;
+	max-width: 800px;
 	margin: 0 0 20px;
 	padding: 2px 0;
 	color: #ddd;
@@ -368,6 +372,7 @@ nav h1 a {
 }
 
 #reviews-list {
+	width: 100%;
 	margin: 0;
 	padding: 0;
 }
@@ -375,7 +380,6 @@ nav h1 a {
 #reviews-list li {
 	position: relative;
 	display: block;
-	width: 85%;
 	margin: 0 0 30px;
 	padding: 20px;
 	overflow: hidden;
