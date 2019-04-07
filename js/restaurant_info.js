@@ -161,21 +161,23 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = review => {
   const li = document.createElement("li");
-  const name = document.createElement("p");
-  name.innerHTML = review.name;
-  li.appendChild(name);
+
+  const rating = document.createElement("p");
+  rating.innerHTML = "Rated: " + loadRating(review.rating);
+  rating.classList.add("rating");
+  li.appendChild(rating);
 
   const date = document.createElement("p");
   date.innerHTML = review.date;
   li.appendChild(date);
 
-  const rating = document.createElement("p");
-  rating.innerHTML = `Rating: ${review.rating}`;
-  li.appendChild(rating);
-
   const comments = document.createElement("p");
   comments.innerHTML = review.comments;
   li.appendChild(comments);
+
+  const name = document.createElement("p");
+  name.innerHTML = "~ " + review.name;
+  li.appendChild(name);
 
   return li;
 };
@@ -212,4 +214,20 @@ getParameterByName = (name, url) => {
   if (!results) return null;
   if (!results[2]) return "";
   return decodeURIComponent(results[2].replace(/\+/g, " "));
+};
+
+const skipLink = document.querySelector("#skip-link");
+const skipDest = document.querySelector("#restaurant-name");
+skipLink.addEventListener("click", function(e) {
+  e.preventDefault();
+  skipDest.focus();
+});
+
+loadRating = rating => {
+  var i;
+  var stars = "";
+  for (i = 0; i <= rating; i++) {
+    stars = stars + "<span>&#9733;</span>";
+  }
+  return stars;
 };

@@ -19,8 +19,9 @@
   <!-- Beginning header -->
   <header>
     <!-- Beginning nav -->
-    <nav>
-      <h1><a tabindex="1" href="./">Restaurant Reviews</a></h1>
+    <nav role="navigation">
+      <a id="skip-link" href="#" class="screen-reader-text">Skip to Content</a></span>
+      <h1><a href="./">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
     <ul id="breadcrumb">
@@ -33,10 +34,14 @@
 
   <!-- Beginning main -->
   <main id="maincontent">
-
+    <!-- Beginning map -->
+    <section id="map-container">
+      <div id="map"></div>
+    </section>
+    <!-- End map -->
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
-      <h1 id="restaurant-name"></h1>
+      <h1 tabindex="-1" id="restaurant-name"></h1>
       <img id="restaurant-img">
       <p id="restaurant-cuisine"></p>
       <p id="restaurant-address"></p>
@@ -48,11 +53,6 @@
       <ul id="reviews-list"></ul>
     </section>
     <!-- End reviews -->
-    <!-- Beginning map -->
-    <section id="map-container">
-      <div id="map"></div>
-    </section>
-    <!-- End map -->
   </main>
   <!-- End main -->
 

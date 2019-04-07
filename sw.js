@@ -1,4 +1,4 @@
-var staticCacheName = ["rrapp-static-v7"];
+var staticCacheName = ["rrapp-static-v1.0"];
 
 self.addEventListener("install", function(event) {
   // TODO: cache /skeleton rather than the root page
