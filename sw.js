@@ -1,4 +1,4 @@
-var staticCacheName = "rrapp-static-v999";
+var staticCacheName = ["rrapp-static-v6"];
 
 self.addEventListener("install", function(event) {
   // TODO: cache /skeleton rather than the root page
@@ -25,28 +25,30 @@ self.addEventListener("install", function(event) {
         "./img/9.jpg",
         "./img/10.jpg",
         "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css",
-        "//normalize-css.googlecode.com/svn/trunk/normalize.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css",
         "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
       ]);
     })
   );
 });
 
-self.addEventListener("activate", function(event) {
+self.addEventListener("activate", event => {
+  // delete any caches that aren't in staticCacheName
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames
-          .filter(function(cacheName) {
-            return (
-              cacheName.startsWith("rrapp-") && cacheName != staticCacheName
-            );
+    caches
+      .keys()
+      .then(keys =>
+        Promise.all(
+          keys.map(key => {
+            if (!staticCacheName.includes(key)) {
+              return caches.delete(key);
+            }
           })
-          .map(function(cacheName) {
-            return caches.delete(cacheName);
-          })
-      );
-    })
+        )
+      )
+      .then(() => {
+        console.log(staticCacheName, "now ready to handle fetches!");
+      })
   );
 });
 
@@ -71,7 +73,7 @@ self.addEventListener("fetch", function(event) {
             const clonedResponse = response.clone();
             caches.open(staticCacheName).then(function(cache) {
               cache.put(event.request, clonedResponse);
-              caches.delete(clonedResponse);
+              console.log("Cache updated: ", event.request, clonedResponse);
             });
 
             return response;

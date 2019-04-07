@@ -171,6 +171,7 @@ createRestaurantHTML = restaurant => {
   const image = document.createElement("img");
   image.className = "restaurant-img";
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name;
   li.append(image);
 
   const name = document.createElement("h1");
@@ -186,9 +187,12 @@ createRestaurantHTML = restaurant => {
   li.append(address);
 
   const more = document.createElement("a");
-  more.innerHTML = "View Details";
+  more.innerHTML =
+    "View Details" +
+    "<span class='screen-reader-text'> " +
+    restaurant.name +
+    "</span>";
   more.href = DBHelper.urlForRestaurant(restaurant);
-  more.tabIndex = "3";
   li.append(more);
 
   return li;
@@ -219,13 +223,20 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 } */
 
-// if (navigator.serviceWorker) {
-//   navigator.serviceWorker
-//     .register("/sw.js")
-//     .then(function(reg) {
-//       console.log(reg, "added service worker.");
-//     })
-//     .catch(function(err) {
-//       console.log("Error adding service worker.");
-//     });
-// }
+const skipLink = document.querySelector("#skip-link");
+const mapFilter = document.querySelector("#neighborhoods-select");
+skipLink.addEventListener("click", function(e) {
+  e.preventDefault();
+  mapFilter.focus();
+});
+
+if (navigator.serviceWorker) {
+  navigator.serviceWorker
+    .register("./sw.js", { scope: "/" })
+    .then(function(reg) {
+      console.log(reg, "added service worker.");
+    })
+    .catch(function(err) {
+      console.log("Error adding service worker.");
+    });
+}
