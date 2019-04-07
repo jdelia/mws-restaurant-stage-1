@@ -9,6 +9,7 @@ self.addEventListener("install", function(event) {
         "/",
         "/index.html",
         "/restaurant.html",
+        "/mws-restaurant-stage-1/",
         "js/dbhelper.js",
         "js/main.js",
         "js/restaurant_info.js",
