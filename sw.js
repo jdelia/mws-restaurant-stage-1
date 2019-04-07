@@ -24,7 +24,9 @@ self.addEventListener("install", function(event) {
         "./img/8.jpg",
         "./img/9.jpg",
         "./img/10.jpg",
-        "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+        "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css",
+        "//normalize-css.googlecode.com/svn/trunk/normalize.css",
+        "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
       ]);
     })
   );
@@ -69,7 +71,9 @@ self.addEventListener("fetch", function(event) {
             const clonedResponse = response.clone();
             caches.open(staticCacheName).then(function(cache) {
               cache.put(event.request, clonedResponse);
+              caches.delete(clonedResponse);
             });
+
             return response;
           })
           .catch(function(err) {
