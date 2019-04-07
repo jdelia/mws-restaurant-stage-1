@@ -13,4 +13,4 @@ This project includes the addition of:
 -   CSS Grid layout on home page
 -   service worker
 
-View [https://jdelia.github.io/mws-restaurant-stage-1/] (Live Demo)
+View [Live Demo](https://jdelia.github.io/mws-restaurant-stage-1/)
