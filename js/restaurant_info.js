@@ -196,7 +196,7 @@ fillReturnButton = () => {
   reviewsList = document.getElementById("reviews-list");
   const more = document.createElement("a");
   more.innerHTML = "Return to Main Page";
-  more.href = "https://jdelia.github.io/mws-restaurant-stage-1/";
+  more.href = "./";
   reviewsList.after(more);
 };
 
