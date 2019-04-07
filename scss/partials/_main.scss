@@ -222,12 +222,17 @@ nav h1 a {
 	// align-items: center;
 	max-width: 100%;
 	margin: 0;
-	padding: 30px 15px 60px;
+	padding: 30px 0 60px;
 	text-align: center;
 	list-style: outside none none;
 	background-color: #f3f3f3;
 	grid-gap: 10px;
 	grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+
+	@include media($screen-m) {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
 }
 
 #restaurants-list li {
