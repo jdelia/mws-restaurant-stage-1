@@ -1,5 +1,5 @@
 /*!
-Main Stylesheet v 2.0
+Main Stylesheet v 2.1
 */
 /* Variables for viewport widths */
 /* ## Typographical Elements
@@ -276,11 +276,6 @@ nav h1 a {
   width: 100%;
   height: 100%;
   background-color: #ccc;
-}
-
-.inside #footer {
-  position: relative;
-  width: 100%;
 }
 
 #restaurant-name {
