@@ -232,7 +232,7 @@ skipLink.addEventListener("click", function(e) {
 
 if (navigator.serviceWorker) {
   navigator.serviceWorker
-    .register("./sw.js", { scope: "/mws-restaurant-stage-1/" })
+    .register("./sw.js", { scope: "./" })
     .then(function(reg) {
       console.log(reg, "added service worker.");
     })
